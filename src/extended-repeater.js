@@ -15,10 +15,21 @@ const { NotImplementedError } = require('../extensions/index.js');
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
  */
-function repeater(/* str, options */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function encodeLine(str) {
+  let count = 1
+  return [...chart].reduce((acc, el, i, ar) => {
+    if (el === ar[++i]) {
+      count++
+    } else {
+      acc = acc + count + el
+      count = 1;
+    } return acc
+  }, '')
+    .split('')
+    .filter((el => el != 1))
+    .join('')
 }
+
 
 module.exports = {
   repeater

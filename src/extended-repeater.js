@@ -33,8 +33,8 @@ function repeater(str, options) {
 
   result.pop(separator)  
 
-  //console.log('STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS')
-  return result.join('').replaceAll(/,/g, "")
+  console.log('STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS')
+  return result.join('').replace(/,/g, "")
 }
 
 module.exports = {

@@ -12,7 +12,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function encodeLine(str) {
   let count = 1
-  return [...chart].reduce((acc, el, i, ar) => {
+  return [...str].reduce((acc, el, i, ar) => {
     if (el === ar[++i]) {
       count++
     } else {

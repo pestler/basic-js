@@ -16,23 +16,25 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function repeater(str, options) {
-  const { repeatTimes, separator = '', addition = '', additionRepeatTimes, additionSeparator = '' } = options;
-  let arr = [];
-  if (repeatTimes === undefined) repeatTimes = 1;
-  if (additionRepeatTimes === undefined) additionRepeatTimes = 1;
-  if (separator === undefined) separator = '+';
-  if (addition === undefined) addition = '';
-  if (additionSeparator === undefined) additionSeparator = '|'; 
-  for (let i = 0; i < repeatTimes; i++) {
-    if (repeatTimes => 1) { arr.push(String(str)) }
-    for (let j = 0; j < additionRepeatTimes; j++) {
-      (additionRepeatTimes > 1 && j != additionRepeatTimes - 1)
-        ? arr.push(String(addition), additionSeparator)
-        : arr.push(String(addition))
-    }
-    if (repeatTimes > 1 && i != repeatTimes - 1) { arr.push(separator) }
+  const { repeatTimes = 1, separator = '+', addition = '', additionRepeatTimes = 1, additionSeparator = '|' } = options;
+  const strArr = [str];
+
+  for (let a = 0; a < additionRepeatTimes; a += 1) {
+    strArr.push(addition)
+    strArr.push(additionSeparator)
   }
-  return arr.join('')
+  strArr.pop(additionSeparator)
+  const result = []
+
+  for (let b = 0; b < repeatTimes; b += 1) {    
+    result.push(strArr)
+    result.push(separator)    
+  }
+
+  result.pop(separator)  
+
+  //console.log('STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS')
+  return result.join('').replaceAll(/,/g, "")
 }
 
 module.exports = {

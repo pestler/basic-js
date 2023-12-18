@@ -19,7 +19,6 @@ function isMAC48Address(n) {
   let reg = /^[A-F0-9]{2}$/
 return adress.length ==6 && adress.every((el)=>reg.test(el))
 }
-
 module.exports = {
   isMAC48Address
 };

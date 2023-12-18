@@ -15,21 +15,25 @@ const { NotImplementedError } = require('../extensions/index.js');
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
  */
-function encodeLine(str) {
-  let count = 1
-  return [...chart].reduce((acc, el, i, ar) => {
-    if (el === ar[++i]) {
-      count++
-    } else {
-      acc = acc + count + el
-      count = 1;
-    } return acc
-  }, '')
-    .split('')
-    .filter((el => el != 1))
-    .join('')
+function repeater(str, options) {
+  const { repeatTimes, separator = '', addition = '', additionRepeatTimes, additionSeparator = '' } = options;
+  let arr = [];
+  if (repeatTimes === undefined) repeatTimes = 1;
+  if (additionRepeatTimes === undefined) additionRepeatTimes = 1;
+  if (separator === undefined) separator = '+';
+  if (addition === undefined) addition = '';
+  if (additionSeparator === undefined) additionSeparator = '|'; 
+  for (let i = 0; i < repeatTimes; i++) {
+    if (repeatTimes => 1) { arr.push(String(str)) }
+    for (let j = 0; j < additionRepeatTimes; j++) {
+      (additionRepeatTimes > 1 && j != additionRepeatTimes - 1)
+        ? arr.push(String(addition), additionSeparator)
+        : arr.push(String(addition))
+    }
+    if (repeatTimes > 1 && i != repeatTimes - 1) { arr.push(separator) }
+  }
+  return arr.join('')
 }
-
 
 module.exports = {
   repeater

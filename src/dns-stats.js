@@ -26,9 +26,9 @@ function getDNSStats(domains) {
   let dns = {}
   domains.forEach((el) => {
     let arr = el.split('.').reverse()
-    for (let i = 1; i < arr.length + 1; i++) {
-      let a = `.${[...arr].splice(0, i).join('.')}`
-      a in dns ? dns[a] += 1 : dns[a] = 1
+    for (let i = 1; i < arr.length +1 ; i++) {      
+      let a = `.${[...arr].splice(0,i).join('.')}`                   
+     a in dns ? dns[a] += 1 : dns[a] = 1
     }
   })
   return dns

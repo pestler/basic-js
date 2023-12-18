@@ -25,7 +25,6 @@ function encodeLine(str) {
     .join('')
 }
 
-
 module.exports = {
   encodeLine
 };

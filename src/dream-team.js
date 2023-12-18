@@ -26,7 +26,7 @@ function createDreamTeam(members) {
   .split('')
   .sort()
   .join('')
-} 
+}  // array check ?
 
 module.exports = {
   createDreamTeam

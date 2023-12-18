@@ -14,26 +14,27 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function transform(arr) {
-  if(!Array.isArray(arr)) throw new Error()
-  let newarr=[]
-  arr.forEach(function(el,i,ar){
-  if(ar[i]==='--discard-next'){
-    newarr.push(arr[i+1])  
-    newarr.pop()    
-  } else if(ar[i]==='--discard-prev'){
-  newarr.pop()
-  } else if(ar[i]==='--double-next'){
-  newarr.push(arr[i+1])
-  }else if(ar[i]==='--double-prev'){
-  newarr.pop(arr[i-1])
-  } else {
-  newarr.push(arr[i])
-  }
-  })
-  arr.includes('undefined') ? newarr 
-  : newarr.filter((el)=> el !==undefined)
-  return newarr
-  }
+if(!Array.isArray(arr)) throw new Error()
+let newarr=[]
+arr.forEach(function(el,i,ar){
+if(ar[i]==='--discard-next'){
+  newarr.push(arr[i+1])  
+  newarr.pop()    
+} else if(ar[i]==='--discard-prev'){
+newarr.pop()
+} else if(ar[i]==='--double-next'){
+newarr.push(arr[i+1])
+}else if(ar[i]==='--double-prev'){
+newarr.pop(arr[i-1])
+} else {
+newarr.push(arr[i])
+}
+})
+arr.includes('undefined') ? newarr 
+: newarr.filter((el)=> el !==undefined)
+return newarr
+}
+
 module.exports = {
   transform
 };

@@ -17,12 +17,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function repeater(str, options) {
   const { repeatTimes = 1, separator = '+', addition = '', additionRepeatTimes = 1, additionSeparator = '|' } = options;
-  const arrAdd = [];
+  let arrAdd = [];
   for (let a = 0; a < additionRepeatTimes; a += 1) {
-    arrAdd.push(addition)
+    if (addition !== undefined) arrAdd.push(addition)
   }
-  const arrStr = arrAdd.join(additionSeparator)
-  const result = []
+  let arrStr = arrAdd.join(additionSeparator)
+  let result = []
   for (let b = 0; b < repeatTimes; b += 1) {
     result.push(str + arrStr)
   }

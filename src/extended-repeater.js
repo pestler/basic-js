@@ -19,7 +19,7 @@ function repeater(str, options) {
   const { repeatTimes = 1, separator = '+', addition = '', additionRepeatTimes = 1, additionSeparator = '|' } = options;
   let arrAdd = [];
   for (let a = 0; a < additionRepeatTimes; a += 1) {
-    if (addition !== undefined) arrAdd.push(addition)
+    if (addition !== undefined) arrAdd.push(`${addition}`)
   }
   let arrStr = arrAdd.join(additionSeparator)
   let result = []
@@ -28,7 +28,7 @@ function repeater(str, options) {
   }
   let resStr = result.join(separator)
 
-  //console.log('STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS')
+  console.log('nullnull!!!null!!!null??? nullnull!!!null!!!null??? nullnull!!!null!!!null')
   return resStr
 }
 

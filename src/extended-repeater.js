@@ -28,7 +28,7 @@ function repeater(str, options) {
   }
   let resStr = result.join(separator)
 
-  console.log('nullnull!!!null!!!null??? nullnull!!!null!!!null??? nullnull!!!null!!!null')
+  //console.log('nullnull!!!null!!!null??? nullnull!!!null!!!null??? nullnull!!!null!!!null')
   return resStr
 }
 

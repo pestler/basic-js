@@ -16,21 +16,28 @@ const { NotImplementedError } = require('../extensions/index.js');
 function transform(arr) {
   if (!Array.isArray(arr)) throw new Error(`'arr' parameter must be an instance of the Array!`)
   if (!arr.length) return [];
-  let newarr = []
-  arr.forEach(function (el, i, ar) {   
-    if (el === '--discard-next') {
-      newarr.push(ar[i + 1])
-    } else if (el === '--discard-prev') {
-      newarr.pop()
-    } else if (el === '--double-next') {
-      newarr.push(ar[i + 1])
-    } else if (el === '--double-prev') {
-      newarr.pop(ar[i - 1])
-    } else {
-      newarr.push(el)
+  let arrFilter = arr
+  let arrNew = []
+  arrFilter.forEach((el, i, ar)=>{
+    switch (el) {
+      case '--discard-next':
+        arrNew.push(ar[i + 1])
+        break
+      case '--discard-prev':
+        arrNew.pop()
+        break
+      case '--double-next':
+        arrNew.push(ar[i + 1])
+        break
+      case '--double-prev':
+        arrNew.pop() & arrNew.pop()
+        break
+      default:
+        arrNew.push(el)
+        break
     }
   })
-  return newarr = newarr.filter((el) => el !== undefined)
+  return arrNew.filter((el) => el !== undefined)
 }
 
 module.exports = {
